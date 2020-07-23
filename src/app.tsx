@@ -1,27 +1,39 @@
-import './index.less';
+import '~/index.less';
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import styled from 'styled-components';
-
-const AppWrapper = styled.div`
-  position: fixed;
-  top: 25vh;
-  left: 25vw;
-  width: 50vw;
-  height: 50vh;
-  text-align: center;
-`;
+import { HashRouter, Switch, Route } from 'react-router-dom';
+import { theme } from 'Common/theme';
+import { ThemeProvider } from 'styled-components';
+import { NavBar } from 'Components/navigation';
+import { Home } from './pages/Home';
 
 const App: React.FC<{}> = () => {
-  return <AppWrapper>Hello</AppWrapper>;
+	return (
+		<>
+			<NavBar />
+
+			<Switch>
+				<Route exact path="/">
+					<Home />
+				</Route>
+			</Switch>
+		</>
+	);
 };
 
 window.addEventListener('DOMContentLoaded', () => {
-  const appContainer = document.querySelector('#root');
+	const appContainer = document.querySelector('#root');
 
-  if (!appContainer) {
-    throw new Error('Fatal launch error, app container not found.');
-  }
+	if (!appContainer) {
+		throw new Error('Fatal launch error, app container not found.');
+	}
 
-  ReactDOM.render(<App />, appContainer);
+	ReactDOM.render(
+		<ThemeProvider theme={theme}>
+			<HashRouter>
+				<App />
+			</HashRouter>
+		</ThemeProvider>,
+		appContainer
+	);
 });

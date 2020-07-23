@@ -6,7 +6,8 @@ const htmlPlugin = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
+  devtool: 'inline-source-map',
   entry: './src/app.tsx',
   output: {
     filename: 'app.js',
@@ -15,11 +16,17 @@ module.exports = {
 
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
+    alias: {
+      '~': path.resolve(__dirname, 'src/'),
+      Common: path.resolve(__dirname, 'src/common'),
+      Components: path.resolve(__dirname, 'src/components/'),
+      Images: path.resolve(__dirname, 'src/images/'),
+      Styles: path.resolve(__dirname, 'src/styles/'),
+    }
   },
 
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.tsx?$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
@@ -29,6 +36,11 @@ module.exports = {
         test: /\.less$/,
         use: ['style-loader', 'css-loader', 'less-loader'],
       },
+
+      {
+        test: /\.png$/,
+        loader: 'url-loader',
+      }
     ],
   },
 
@@ -36,7 +48,7 @@ module.exports = {
 
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
-    compress: true,
+    compress: false,
     port: 1234,
   },
 };
