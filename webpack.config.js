@@ -22,11 +22,12 @@ module.exports = {
       Components: path.resolve(__dirname, 'src/components/'),
       Images: path.resolve(__dirname, 'src/images/'),
       Styles: path.resolve(__dirname, 'src/styles/'),
-    }
+    },
   },
 
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.tsx?$/,
         loader: 'ts-loader',
         exclude: /node_modules/,
@@ -40,7 +41,7 @@ module.exports = {
       {
         test: /\.png$/,
         loader: 'url-loader',
-      }
+      },
     ],
   },
 

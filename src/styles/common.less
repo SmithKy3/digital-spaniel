@@ -1,15 +1,68 @@
 @openSans: 'Open Sans', Arial, sans-serif;
 @raleway: 'Raleway', 'Trebuchet MS', sans-serif;
 
-@highlightPink: #C0345E;
-@lightGrey: #EDEFF1;
+@highlightPink: #c0345e;
+@lightGrey: #edeff1;
 @mediumGrey: #506473;
-@darkGrey: #596D7A;
+@darkGrey: #596d7a;
 @navy: #344657;
-@darkNavy: #19293A;
+@darkNavy: #19293a;
 
 @light: 300;
 @regular: 400;
 @semiBold: 600;
 @bold: 700;
 @extraBold: 800;
+
+@tabletWidth: 1024px;
+
+@flex-half-screen: {
+  position: relative;
+  width: 50%;
+  flex: 1 1 auto;
+
+  @media screen and (max-width: @tabletWidth) {
+    width: 100%;
+    height: max-content;
+  }
+
+  h3 {
+    font-family: @openSans;
+    font-weight: @regular;
+    color: @highlightPink;
+  }
+
+  h2 {
+    font-family: @raleway;
+    font-weight: @semiBold;
+    color: @mediumGrey;
+    margin: 2rem 0;
+
+    span {
+      color: @darkNavy;
+    }
+  }
+
+  p {
+    font-size: 1.25rem;
+    font-family: @openSans;
+    font-weight: @regular;
+    color: @mediumGrey;
+  }
+
+  button {
+    width: max-content;
+    margin-top: 4rem;
+    padding: 0.2em 0;
+    background: inherit;
+
+    border-width: 0 0 0.2em 0;
+    border-color: @highlightPink;
+    border-style: solid;
+
+    > p {
+      font-weight: @bold;
+      color: @darkNavy;
+    }
+  }
+};

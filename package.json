@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SmithKy3/digital-spaniel.git"
+    "url": "https://github.com/SmithKy3/digital-spaniel.git"
   },
   "author": "Kye Smith",
   "bugs": {
@@ -23,7 +23,6 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/styled-components": "^5.1.1",
     "css-loader": "^3.6.0",
-    "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "less-loader": "^6.2.0",
     "react": "^16.13.1",

@@ -1,0 +1,53 @@
+@import 'Styles/common';
+
+#capabilities-wrapper {
+  width: 100%;
+  height: max-content;
+  min-height: 60vh;
+  display: flex;
+  background: @lightGrey;
+
+  @media screen and (max-width: @tabletWidth) {
+    flex-flow: column nowrap;
+  }
+
+  > div {
+    @flex-half-screen();
+  }
+
+  #capabilities-bio {
+    margin: 10% 25%;
+    width: 50%;
+    height: max-content;
+  }
+
+  #services-table {
+    margin: 10% 5%;
+    width: 70%;
+    height: max-content;
+    font-size: 1.1rem;
+    text-align: left;
+
+    th,
+    td {
+      font-weight: @semiBold;
+      vertical-align: middle;
+      padding: 1rem 1.5rem;
+    }
+
+    th {
+      font-family: @raleway;
+      color: @darkNavy;
+    }
+
+    td {
+      font-family: @openSans;
+      color: @mediumGrey;
+    }
+
+    @media screen and (max-width: @tabletWidth) {
+      margin: 10% 10%;
+      width: 80%;
+    }
+  }
+}
