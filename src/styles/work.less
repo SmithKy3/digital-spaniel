@@ -1,0 +1,65 @@
+@import 'Styles/common.less';
+
+#work {
+	width: 100vw;
+	height: max-content;
+}
+
+#content {
+	margin: 5% 12.5%;
+	width: 75%;
+	height: max-content;
+}
+
+#project-sliders-wrapper {
+	margin: 5% 0;
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+}
+
+.project-slider {
+	position: relative;
+	width: max-content;
+	height: 23.5rem;
+	margin-bottom: 1rem;
+	flex: 1 1 auto;
+	border: 1px solid white;
+	border-radius: 5px;
+
+	> img {
+		height: 100%;
+	}
+}
+
+.project-slider-info {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.75));
+	color: white;
+	transition: opacity 1s;
+
+	> h4 {
+		text-align: left;
+		font-size: 1.5rem;
+		font-family: @raleway;
+		font-weight: @bold;
+	}
+
+	> p {
+		font-size: 1rem;
+		font-family: @openSans;
+		font-weight: @regular;
+
+		> span {
+			margin-top: 1.5rem;
+			font-size: 0.75rem;
+			font-weight: @semiBold;
+		}
+	}
+}

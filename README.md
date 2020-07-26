@@ -6,8 +6,7 @@
 
 ### The "Services" menu item shows the hover/active state
 
-For this, I decided to use react-router becasue of the NavLink available. Makes adding an active class super easy. Didn't struggle too much with this. Did have a slight
-issue with getting the active/hover styling to work correctly but It was just because I wasn't wrapping the anchor tag in anything and I always forget they have some weird width rules.
+UPDATE TO USE WINDOW>SCROLLTO
 
 ### The header area should be full screen on desktop and collapse to a hamburger menu on tablet and mobile viewports which slides in/out when clicked
 

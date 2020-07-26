@@ -1,29 +1,29 @@
 @import 'Styles/common';
 
 #landing-wrapper {
-  width: 100vw;
-  height: max-content;
-  min-height: 100vh;
-  display: flex;
-  flex-flow: row nowrap;
-  align-content: center;
+	width: 100vw;
+	height: max-content;
+	min-height: 100vh;
+	display: flex;
+	flex-flow: row nowrap;
+	align-content: center;
 
-  > div {
-    @flex-half-screen();
-  }
+	> div {
+		@flex-half-screen();
+	}
 
-  #landing-bio {
-    margin: 25% 25%;
-    width: 50%;
-    height: max-content;
-  }
+	#landing-bio {
+		margin: 25% 25%;
+		width: 50%;
+		height: max-content;
+	}
 }
 
 .flex-half-screen#spaniel {
-  background-image: url(~Images/landing_spaniel.png);
-  background-size: cover;
+	background-image: url(~Images/landing-spaniel.png);
+	background-size: cover;
 
-  @media screen and (max-width: @tabletWidth) {
-    display: none;
-  }
+	@media screen and (max-width: @tabletWidth) {
+		display: none;
+	}
 }

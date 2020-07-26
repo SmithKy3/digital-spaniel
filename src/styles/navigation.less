@@ -1,59 +1,59 @@
 @import 'Styles/common';
 
 #navigation {
-  position: fixed;
-  top: 3%;
-  z-index: 10;
-  width: 40%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: white;
+	position: fixed;
+	top: 3%;
+	z-index: 10;
+	width: 40%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: white;
 
-  .nav-link {
-    flex: 1 1 auto;
-    font-size: 1rem;
-    font-family: @openSans;
-    font-weight: @light;
-    color: inherit;
-    box-sizing: border-box;
+	.nav-link {
+		flex: 1 1 auto;
+		font-size: 1rem;
+		font-family: @openSans;
+		font-weight: @light;
+		color: white;
+		box-sizing: border-box;
 
-    > span {
-      width: min-content;
-    }
-  }
+		> a {
+			color: inherit;
+		}
+	}
 
-  .nav-link:hover,
-  .nav-link.active {
-    > span {
-      border-width: 0 0 0.1rem 0;
-      border-color: inherit;
-      border-style: solid;
-    }
-  }
+	.nav-link:hover,
+	.nav-link.active {
+		> a {
+			border-width: 0 0 0.1rem 0;
+			border-color: white;
+			border-style: solid;
+		}
+	}
 
-  @media screen and (max-width: 1024px) {
-    color: @darkNavy;
-    width: 60%;
-    transition: right 1s;
-  }
+	@media screen and (max-width: 1024px) {
+		color: @darkNavy;
+		width: 60%;
+		transition: right 1s;
+	}
 }
 
 #nav-show,
 #nav-hide {
-  background: inherit;
-  border: none;
-  font-size: 2rem;
-  cursor: poiner;
+	background: inherit;
+	border: none;
+	font-size: 2rem;
+	cursor: poiner;
 
-  & #nav-hide {
-    flex: 1 1 auto;
-  }
+	& #nav-hide {
+		flex: 1 1 auto;
+	}
 }
 
 #nav-show {
-  position: absolute;
-  top: 3%;
-  right: 3%;
-  z-index: 1;
+	position: absolute;
+	top: 3%;
+	right: 3%;
+	z-index: 1;
 }

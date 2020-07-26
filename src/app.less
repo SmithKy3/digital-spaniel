@@ -1,34 +1,44 @@
+@import 'Styles/common';
+
 * {
-  margin: 0;
-  padding: 0;
-  z-index: 0;
+	margin: 0;
+	padding: 0;
+	z-index: 0;
 }
 
 html {
-  font-size: 1vmax;
+	font-size: 1vmax;
 
-  @media screen and (max-width: 1024px) {
-    font-size: 3vw;
-  }
+	@media screen and (max-width: 1024px) {
+		font-size: 3vw;
+	}
 }
 
 body {
-  min-height: 100vh;
-  min-width: 100vw;
+	min-height: 100vh;
+	min-width: 100vw;
 }
 
 h2 {
-  font-size: 2rem;
+	font-size: 2rem;
+	font-family: @raleway;
+	font-weight: @semiBold;
+	color: @darkNavy;
+	margin: 2rem 0;
+
+	span {
+		color: @mediumGrey;
+	}
 }
 
 p,
 h3 {
-  font-size: 1rem;
+	font-size: 1rem;
 }
 
 a,
 a:hover,
 a:active,
 a:visited {
-  text-decoration: none;
+	text-decoration: none;
 }

@@ -1,41 +1,44 @@
 import '~/app.less';
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter, Switch, Route } from 'react-router-dom';
-import { theme } from 'Common/theme';
-import { ThemeProvider } from 'styled-components';
-import { NavBar } from 'Components/navigation';
+import { NavBar } from 'Components/Navigation';
 import { Landing } from 'Components/Landing';
 import { Services } from 'Components/Services';
+import { Work } from 'Components/Work';
+import { getRecentProjectsData, RecentProjectsData } from 'Data/api';
+
+interface WorkData {
+	recentProjects: RecentProjectsData[];
+}
+export let WorkDataContext: React.Context<WorkData>;
 
 const App: React.FC<{}> = () => {
-  return (
-    <>
-      <NavBar />
-
-      <Switch>
-        <Route exact path="/">
-          <Landing />
-          <Services />
-        </Route>
-      </Switch>
-    </>
-  );
+	return (
+		<>
+			<NavBar />
+			<Landing />
+			<Services />
+			<Work />
+		</>
+	);
 };
 
-window.addEventListener('DOMContentLoaded', () => {
-  const appContainer = document.querySelector('#root');
+window.addEventListener('DOMContentLoaded', async () => {
+	const appContainer = document.querySelector('#root');
 
-  if (!appContainer) {
-    throw new Error('Fatal launch error, app container not found.');
-  }
+	if (!appContainer) {
+		throw new Error('Fatal launch error, app container not found.');
+	}
 
-  ReactDOM.render(
-    <ThemeProvider theme={theme}>
-      <HashRouter>
-        <App />
-      </HashRouter>
-    </ThemeProvider>,
-    appContainer
-  );
+	const workData = {
+		recentProjects: await getRecentProjectsData(),
+	};
+	WorkDataContext = React.createContext(workData);
+
+	ReactDOM.render(
+		<WorkDataContext.Provider value={workData}>
+			<App />
+		</WorkDataContext.Provider>,
+		appContainer
+	);
 });

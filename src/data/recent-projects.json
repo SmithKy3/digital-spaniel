@@ -1,0 +1,37 @@
+[
+	{
+		"project title": "well well wellies",
+		"project description": "A fiercely vibrant fashion brand now have a brand to match their personality.",
+		"project url": "",
+		"project image name": "work-wellies",
+		"project category": "branding"
+	},
+	{
+		"project title": "make ideas happen",
+		"project description": "A local paper with big ideas needed a sharp new brand to inspire readers.",
+		"project url": "",
+		"project image name": "work-MIH",
+		"project category": "branding"
+	},
+	{
+		"project title": "every mackerel helps",
+		"project description": "We recently led the digital marketing capaign for a new Tesco's range.",
+		"project url": "",
+		"project image name": "work-mackerel",
+		"project category": "digital-marketing"
+	},
+	{
+		"project title": "dinano",
+		"project description": "An international online-only newspaper boosted onto the modern web.",
+		"project url": "",
+		"project image name": "work-newspaper",
+		"project category": "web-design"
+	},
+	{
+		"project title": "ride",
+		"project description": "We recently helped Ride co. with their largest marketing campaign to date.",
+		"project url": "",
+		"project image name": "work-rider",
+		"project category": "digital-marketing"
+	}
+]
