@@ -16,7 +16,13 @@
 
 @tabletWidth: 1024px;
 
-@flex-half-screen: {
+@pinkUnderline: {
+	border-width: 0 0 0.2em 0;
+	border-color: @highlightPink;
+	border-style: solid;
+};
+
+@halfScreenFlexBox: {
 	position: relative;
 	width: 50%;
 	flex: 1 1 auto;
@@ -33,7 +39,6 @@
 	}
 
 	p {
-		font-size: 1.25rem;
 		font-family: @openSans;
 		font-weight: @regular;
 		color: @mediumGrey;
@@ -45,9 +50,7 @@
 		padding: 0.2em 0;
 		background: inherit;
 
-		border-width: 0 0 0.2em 0;
-		border-color: @highlightPink;
-		border-style: solid;
+		@pinkUnderline();
 
 		> p {
 			font-weight: @bold;

@@ -1,8 +1,9 @@
-@import 'Styles/common.less';
+@import 'Styles/variables';
 
 #work {
 	width: 100vw;
 	height: max-content;
+	min-height: 100vh;
 }
 
 #content {
@@ -11,40 +12,76 @@
 	height: max-content;
 }
 
-#project-sliders-wrapper {
-	margin: 5% 0;
-	width: 100%;
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-between;
+#projects-filters {
+	width: 60%;
+	margin: 0 0 2%;
+
+	> div {
+		display: inline-block;
+		width: 25%;
+		padding: 0.25rem 0;
+		font-size: 1rem;
+		font-family: @openSans;
+		@font-weight: @regular;
+		color: @darkNavy;
+		text-align: center;
+		border-width: 0 0 0.1rem 0;
+		border-color: @mediumGrey;
+		border-style: solid;
+		cursor: pointer;
+	}
+
+	> div.active {
+		font-weight: @bold;
+		@pinkUnderline();
+	}
+
+	@media screen and (max-width: @tabletWidth) {
+		width: 100%;
+	}
 }
 
-.project-slider {
+#project-cards-wrapper {
+	margin: 0 0 5%;
+	width: 100%;
+}
+
+.project-card {
+	display: inline-block;
 	position: relative;
 	width: max-content;
-	height: 23.5rem;
-	margin-bottom: 1rem;
-	flex: 1 1 auto;
+	height: 25rem;
+	margin: 0.5rem 1.5rem 0.5rem 0;
 	border: 1px solid white;
 	border-radius: 5px;
+
+	@media screen and (max-width: @tabletWidth) {
+		height: 10rem;
+	}
 
 	> img {
 		height: 100%;
 	}
 }
 
-.project-slider-info {
+.project-card-info {
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: 10;
 	width: 100%;
 	height: 100%;
+	padding: 0 10%;
+	box-sizing: border-box;
+	border-radius: 5px;
 	background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.75));
 	color: white;
 	transition: opacity 1s;
 
 	> h4 {
+		position: absolute;
+		bottom: 40%;
+		max-width: 100%;
 		text-align: left;
 		font-size: 1.5rem;
 		font-family: @raleway;
@@ -52,14 +89,20 @@
 	}
 
 	> p {
+		position: absolute;
+		bottom: 25%;
+		max-width: 100%;
 		font-size: 1rem;
 		font-family: @openSans;
 		font-weight: @regular;
+	}
 
-		> span {
-			margin-top: 1.5rem;
-			font-size: 0.75rem;
-			font-weight: @semiBold;
-		}
+	> h3 {
+		position: absolute;
+		bottom: 10%;
+		font-size: 1.25rem;
+		font-family: @raleway;
+		font-weight: @semiBold;
+		color: inherit;
 	}
 }

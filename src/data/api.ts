@@ -1,3 +1,4 @@
+import * as helpers from 'Common/helpers';
 import recentProjects from 'Data/recent-projects.json';
 
 type GenericDataResponse = Record<string, string>;
@@ -27,11 +28,17 @@ export async function getRecentProjectsData(): Promise<RecentProjectsData[]> {
 	return recentProjects.map(rawDatum => {
 		const image = require(`Images/${rawDatum[RecentProjectKeys.imageName]}.png`)
 			.default;
+		const title = helpers.upperFirstEveryWord(
+			rawDatum[RecentProjectKeys.title]
+		);
+		const description = helpers.upperFirstLetter(
+			rawDatum[RecentProjectKeys.description]
+		);
 
 		return {
 			image,
-			title: rawDatum[RecentProjectKeys.title],
-			description: rawDatum[RecentProjectKeys.description],
+			title,
+			description,
 			fullProjectUrl: rawDatum[RecentProjectKeys.url],
 			category: rawDatum[RecentProjectKeys.category],
 		};

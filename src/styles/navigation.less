@@ -1,8 +1,8 @@
-@import 'Styles/common';
+@import 'Styles/variables';
 
 #navigation {
 	position: fixed;
-	top: 3%;
+	top: 7.5%;
 	z-index: 10;
 	width: 40%;
 	display: flex;
@@ -10,32 +10,52 @@
 	justify-content: space-between;
 	color: white;
 
-	.nav-link {
-		flex: 1 1 auto;
-		font-size: 1rem;
-		font-family: @openSans;
-		font-weight: @light;
-		color: white;
-		box-sizing: border-box;
-
-		> a {
-			color: inherit;
-		}
-	}
-
-	.nav-link:hover,
-	.nav-link.active {
-		> a {
-			border-width: 0 0 0.1rem 0;
-			border-color: white;
-			border-style: solid;
-		}
-	}
-
 	@media screen and (max-width: 1024px) {
+		top: 3%;
 		color: @darkNavy;
-		width: 60%;
+		width: 70%;
 		transition: right 1s;
+	}
+}
+
+.nav-link {
+	flex: 1 1 auto;
+	font-size: 1rem;
+	font-family: @openSans;
+	font-weight: @light;
+	box-sizing: border-box;
+
+	> a {
+		color: inherit;
+	}
+
+	@media screen and (max-width: @tabletWidth) {
+		font-size: 1.5rem;
+	}
+}
+
+.nav-link:hover,
+.nav-link.active {
+	> a {
+		border-width: 0 0 0.1rem 0;
+		border-color: white;
+		border-style: solid;
+	}
+}
+
+#nav-show {
+	position: fixed;
+	top: 3%;
+	right: 3%;
+	z-index: 1;
+}
+
+#nav-hide {
+	flex: 1 1 auto;
+
+	svg {
+		display: inline-block;
+		vertical-align: middle;
 	}
 }
 
@@ -44,16 +64,20 @@
 	background: inherit;
 	border: none;
 	font-size: 2rem;
-	cursor: poiner;
 
-	& #nav-hide {
-		flex: 1 1 auto;
+	@media screen and (max-width: @tabletWidth) {
+		font-size: 3rem;
 	}
 }
 
-#nav-show {
-	position: absolute;
-	top: 3%;
-	right: 3%;
-	z-index: 1;
+.scroll-down {
+	#navigation {
+		transform: translateY(-500%);
+	}
+}
+
+.scroll-up {
+	#navigation {
+		transform: none;
+	}
 }

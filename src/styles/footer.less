@@ -1,0 +1,48 @@
+@import 'Styles/variables';
+
+#footer {
+	width: 100vw;
+	height: max-content;
+	display: flex;
+	flex-flow: row nowrap;
+	background: @lightGrey;
+
+	@media screen and (max-width: @tabletWidth) {
+		flex-flow: column nowrap;
+	}
+}
+
+#footer-left {
+	@halfScreenFlexBox();
+
+	> h2,
+	button {
+		margin: 10% 25% 0;
+	}
+}
+
+#footer-right {
+	@halfScreenFlexBox();
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row nowrap;
+
+	@media screen and (max-width: @tabletWidth) {
+		padding-left: 10%;
+	}
+}
+
+#links-table,
+#contact-table {
+	flex: 1 1 auto;
+	margin: 10% 0;
+	font-size: 1.25rem;
+
+	@media screen and (max-width: @tabletWidth) {
+		font-size: 1rem;
+	}
+}
+
+#links-table {
+	flex: 1 1 auto;
+}

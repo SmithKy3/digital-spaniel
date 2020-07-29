@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 interface BaseNavBarProps {
-	rightOffset: number; // Percentage of nav bar width
+	rightOffset: number;
 	animationLength?: number;
 }
 
@@ -11,23 +11,38 @@ const ABOUT_SECTION_ID = '#about';
 const BLOG_SECTION_ID = '#blog';
 const CONTACT_SECTION_ID = '#contact';
 
-function isNavLinkActive(identifier: string): boolean {
-	const element = document.querySelector(identifier);
+export const SCROLLING_UP_CLASS = 'scroll-up';
+export const SCROLLING_DOWN_CLASS = 'scroll-down';
+let previousScrollPosition = 0;
 
-	if (!element) {
-		return false;
+export function handleScrolling() {
+	const { body } = document;
+	const currentScrollPosition = window.pageYOffset;
+
+	if (
+		currentScrollPosition === 0 ||
+		currentScrollPosition === previousScrollPosition
+	) {
+		body.classList.remove(SCROLLING_DOWN_CLASS);
+		body.classList.remove(SCROLLING_UP_CLASS);
+		return;
 	}
 
-	const boundingBox = element.getBoundingClientRect();
-	const boundingBoxCenter = boundingBox.top + boundingBox.height * 0.5;
+	if (
+		currentScrollPosition > previousScrollPosition &&
+		!body.classList.contains(SCROLLING_DOWN_CLASS)
+	) {
+		body.classList.remove(SCROLLING_UP_CLASS);
+		body.classList.add(SCROLLING_DOWN_CLASS);
+	} else if (
+		currentScrollPosition < previousScrollPosition &&
+		!body.classList.contains(SCROLLING_UP_CLASS)
+	) {
+		body.classList.remove(SCROLLING_DOWN_CLASS);
+		body.classList.add(SCROLLING_UP_CLASS);
+	}
 
-	// If the fills at least half of the viewport, we should class it as the currently 'active' section
-	return (
-		boundingBox.top >= 0 &&
-		boundingBox.left >= 0 &&
-		boundingBoxCenter <=
-			(window.innerHeight || document.documentElement.clientHeight)
-	);
+	previousScrollPosition = currentScrollPosition;
 }
 
 export const BaseNavBar: React.FC<BaseNavBarProps> = props => {
@@ -35,8 +50,14 @@ export const BaseNavBar: React.FC<BaseNavBarProps> = props => {
 
 	const style: React.CSSProperties = {
 		right: `${props.rightOffset}%`,
-		transition: `right ${props.animationLength ?? 0}s`,
+		transition: `right ${props.animationLength ?? 0}s, transform.5s`,
 	};
+
+	React.useEffect(() => {
+		window.addEventListener('scroll', handleScrolling);
+
+		return () => window.removeEventListener('scroll', handleScrolling);
+	});
 
 	return (
 		<nav id="navigation" style={style}>

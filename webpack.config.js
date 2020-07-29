@@ -5,9 +5,10 @@ const htmlPlugin = new HtmlWebpackPlugin({
 	template: './src/index.html',
 });
 
+console.log(process.env.NODE_ENV);
+
 module.exports = {
-	mode: 'development',
-	devtool: 'inline-source-map',
+	mode: process.env.NODE_ENV,
 	entry: './src/app.tsx',
 	output: {
 		filename: 'app.js',
@@ -47,6 +48,8 @@ module.exports = {
 	},
 
 	plugins: [htmlPlugin],
+
+	devtool: process.env.NODE_ENV == 'development' ? 'inline-source-map' : 'eval',
 
 	devServer: {
 		contentBase: path.join(__dirname, 'dist'),

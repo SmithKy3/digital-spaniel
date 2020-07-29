@@ -5,30 +5,26 @@ interface ProjectSliderProps {
 	data: RecentProjectsData;
 }
 
-export const ProjectSliderTab: React.FC<ProjectSliderProps> = props => {
+export const ProjectCard: React.FC<ProjectSliderProps> = props => {
 	const [isHovered, setHovered] = React.useState(false);
-
 	const { data } = props;
 
 	return (
 		<div
-			className="project-slider"
+			className="project-card"
 			onMouseOver={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
 		>
 			<img src={data.image} />
 
-			<div
-				className="project-slider-info"
-				style={{ opacity: isHovered ? 1 : 0 }}
-			>
+			<div className="project-card-info" style={{ opacity: isHovered ? 1 : 0 }}>
 				<h4>{data.title}</h4>
-				<p>
-					{data.description}
-					<span className="project-slider-link">
-						<a href={data.fullProjectUrl}>Full Project</a>
-					</span>
-				</p>
+
+				<p>{data.description}</p>
+
+				<h3 className="project-slider-link">
+					<a href={data.fullProjectUrl}>Full Project</a>
+				</h3>
 			</div>
 		</div>
 	);

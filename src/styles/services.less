@@ -1,4 +1,9 @@
-@import 'Styles/common';
+@import 'Styles/variables';
+
+#services {
+	width: 100vw;
+	height: max-content;
+}
 
 #capabilities-wrapper {
 	width: 100%;
@@ -12,42 +17,24 @@
 	}
 
 	> div {
-		@flex-half-screen();
+		@halfScreenFlexBox();
 	}
+}
 
-	#capabilities-bio {
-		margin: 10% 25%;
-		width: 50%;
-		height: max-content;
-	}
+#capabilities-bio {
+	margin: 15% 25%;
+	width: 40%;
+	height: max-content;
+}
 
-	#services-table {
-		margin: 10% 5%;
-		width: 70%;
-		height: max-content;
-		font-size: 1rem;
-		text-align: left;
+#services-table {
+	margin: 15% 5%;
+	width: 70%;
+	height: max-content;
+	font-size: 1.25rem;
+	text-align: left;
 
-		th,
-		td {
-			font-weight: @semiBold;
-			vertical-align: middle;
-			padding: 0 1.5rem 1.5rem;
-		}
-
-		th {
-			font-family: @raleway;
-			color: @darkNavy;
-		}
-
-		td {
-			font-family: @openSans;
-			color: @mediumGrey;
-		}
-
-		@media screen and (max-width: @tabletWidth) {
-			margin: 10% 10%;
-			width: 80%;
-		}
+	@media screen and (max-width: @tabletWidth) {
+		margin: 10% 0 10% 25%;
 	}
 }

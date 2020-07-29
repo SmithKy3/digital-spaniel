@@ -1,10 +1,11 @@
-import '~/app.less';
+import 'Styles/app.less';
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import { NavBar } from 'Components/Navigation';
 import { Landing } from 'Components/Landing';
 import { Services } from 'Components/Services';
 import { Work } from 'Components/Work';
+import { Footer } from 'Components/Footer';
 import { getRecentProjectsData, RecentProjectsData } from 'Data/api';
 
 interface WorkData {
@@ -19,6 +20,7 @@ const App: React.FC<{}> = () => {
 			<Landing />
 			<Services />
 			<Work />
+			<Footer />
 		</>
 	);
 };

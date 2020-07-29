@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { ThemeContext } from 'styled-components';
 import { BaseNavBar } from './BaseNavBar';
 import { MobileNavBar } from './MobileNavBar';
 import 'Styles/navigation.less';

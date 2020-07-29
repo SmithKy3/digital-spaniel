@@ -1,25 +1,37 @@
-@import 'Styles/common';
+@import 'Styles/variables';
 
-#landing-wrapper {
+#landing {
 	width: 100vw;
 	height: max-content;
 	min-height: 100vh;
 	display: flex;
 	flex-flow: row nowrap;
 	align-content: center;
+}
 
-	> div {
-		@flex-half-screen();
-	}
+#landing-left {
+	@halfScreenFlexBox();
+}
 
-	#landing-bio {
-		margin: 25% 25%;
-		width: 50%;
-		height: max-content;
+#logo {
+	position: absolute;
+	top: 2%;
+	left: 15%;
+	width: 20%;
+
+	@media screen and (max-width: @tabletWidth) {
+		left: 2%;
 	}
 }
 
-.flex-half-screen#spaniel {
+#landing-bio {
+	margin: 35% 25% 25%;
+	width: 50%;
+	height: max-content;
+}
+
+#landing-right {
+	@halfScreenFlexBox();
 	background-image: url(~Images/landing-spaniel.png);
 	background-size: cover;
 

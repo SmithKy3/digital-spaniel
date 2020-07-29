@@ -1,7 +1,7 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import { StyledTable } from 'Components/StyledTable';
+import { ServicesTableRows } from 'Data/ServicesTableContent';
 import 'Styles/services.less';
-import { ServicesTable } from './ServicesTable';
 
 export const Services: React.FC<{}> = () => {
 	return (
@@ -28,7 +28,7 @@ export const Services: React.FC<{}> = () => {
 				</div>
 
 				<div className="flex-half-screen">
-					<ServicesTable />
+					<StyledTable id={'services-table'} rows={ServicesTableRows} />
 				</div>
 			</div>
 		</section>

@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { MdMenu, MdClose } from 'react-icons/md';
-import { BaseNavBar } from './BaseNavBar';
+import {
+	BaseNavBar,
+	SCROLLING_UP_CLASS,
+	SCROLLING_DOWN_CLASS,
+} from './BaseNavBar';
 
 const NAV_SHOW_ANIMATION_LENGTH = 1;
 const NAV_OPEN_OFFSET = 0;
@@ -12,6 +16,9 @@ export const MobileNavBar: React.FC<{}> = () => {
 
 	function handleMenuToggle(openState: boolean): void {
 		if (openState) {
+			const { body } = document;
+			body.classList.remove(SCROLLING_UP_CLASS);
+			body.classList.remove(SCROLLING_DOWN_CLASS);
 			setOpen(openState);
 			setNavOffset(NAV_OPEN_OFFSET);
 		} else {

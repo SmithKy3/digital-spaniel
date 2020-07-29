@@ -1,0 +1,61 @@
+@import 'Styles/variables';
+
+.styled-table {
+	display: inline-block;
+	th,
+	td {
+		position: relative;
+		text-align: left;
+		font-weight: @semiBold;
+		vertical-align: middle;
+		padding-bottom: 1.5rem;
+		padding-right: 3rem;
+		padding-left: 1rem;
+	}
+
+	th {
+		font-family: @raleway;
+		color: @darkNavy;
+	}
+
+	td {
+		font-family: @openSans;
+		color: @mediumGrey;
+	}
+
+	th:hover,
+	td:hover {
+		@hoveredTableLink();
+	}
+
+	@media screen and (max-width: @tabletWidth) {
+		margin: 10% 10%;
+		width: 80%;
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@hoveredTableLink: {
+	&:after {
+		content: '>';
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 1.5rem;
+		height: 1.5rem;
+		color: @lightGrey;
+		font-size: 1rem;
+		text-align: center;
+		background: @darkGrey;
+		border-radius: 50%;
+		animation: fadeIn 1s;
+	}
+};
